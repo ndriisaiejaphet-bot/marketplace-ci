@@ -21,10 +21,16 @@ jobs:
           channel: stable
 
       - name: Create Flutter project
-        run: flutter create --project-name marketplace_ci --platforms=android .
+        run: |
+          flutter create --project-name marketplace_ci --platforms=android .
 
-      - name: Install dependencies
-        run: flutter pub get
+      - name: Get dependencies
+        run: |
+          flutter clean
+          flutter pub get
+
+      - name: Check url_launcher
+        run: flutter pub deps
 
       - name: Build APK
         run: flutter build apk --release
