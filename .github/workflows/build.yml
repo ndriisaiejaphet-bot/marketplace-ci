@@ -20,9 +20,9 @@ jobs:
           flutter-version: '3.35.4'
           channel: stable
 
-      - name: Créer la structure Flutter Android
-        run: |
-          flutter create --platforms=android .
+      - - name: Créer la structure Flutter Android
+  run: |
+    flutter create --project-name marketplace_ci --platforms=android ..
 
       - name: Installer les dépendances
         run: flutter pub get
